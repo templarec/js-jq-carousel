@@ -40,4 +40,37 @@ prevArrow.click(function () {
 		console.log(indice);
 	}
 });
+//eventi press tastiera arrows
+$(document).keydown(function (evento) {
+	if (evento.keyCode == 39){
+		if (currentImage.hasClass("active")) {
+			if (indice < 3){
+				indice++;
+			} else {
+				indice = 0;
+			}
+			currentImage.removeClass("active");
+			currentCircle.removeClass("active");
+			currentImage.eq(indice).addClass("active");
+			currentCircle.eq(indice).addClass("active");
+			console.log(indice);
+		}
+	}
+});
 
+$(document).keydown(function (evento) {
+	if (evento.keyCode == 37){
+		if (currentImage.hasClass("active")) {
+			if (indice > 0) {
+				indice--;
+			} else {
+				indice = 3;
+			}
+			currentImage.removeClass("active");
+			currentCircle.removeClass("active");
+			currentImage.eq(indice).addClass("active");
+			currentCircle.eq(indice).addClass("active");
+			console.log(indice);
+		}
+	}
+});
